@@ -1,8 +1,5 @@
 package at.campus02.swe.logic;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 
 import at.campus02.swe.Calculator;
@@ -10,6 +7,8 @@ import at.campus02.swe.CalculatorException;
 import at.campus02.swe.Calculator.Operation;
 
 import java.util.Random;
+
+import static org.junit.Assert.*;
 
 public class CalculatorTest {
 
@@ -155,5 +154,45 @@ public class CalculatorTest {
 
     }
 
+    @Test
+    public void testDotproductOperation() throws Exception {
 
+        //setup
+        Calculator calc = new CalculatorImpl();
+
+        //execute
+        calc.push(1.0);
+        calc.push(2.0);
+        calc.push(3.0);
+        calc.push(4.0);
+        calc.push(2.0);
+        double result = calc.perform(Operation.dotproduct);
+
+        //verify
+        assertEquals(11, result, 0);
+
+    }
+
+    @Test
+    public void testDotproductOperationWithToBigLength() throws Exception {
+
+        //Setup
+        Calculator calc = new CalculatorImpl();
+        try {
+            calc.push(1.0);
+            calc.push(2.0);
+            calc.push(3.0);
+            calc.push(4.0);
+            calc.push(3.0);
+            double result = calc.perform(Operation.dotproduct);
+
+            fail("Exception expected");
+
+
+        } catch (CalculatorException e) {
+            assertNull(e.getMessage());
+            // e.getCause()
+        }
+
+    }
 }

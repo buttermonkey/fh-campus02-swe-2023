@@ -60,9 +60,22 @@ public class CalculatorImpl implements Calculator {
                 b = pop();  // b = Maximum
                 a = pop();  // a = Minimum
                 return random.nextInt((int)b - (int)a) + (int)a;
+            case dotproduct:
+                return calculateDotProduct();
             default:
                 throw new CalculatorException("Unsupported operation: " + op);
         }
+    }
+
+    private double calculateDotProduct() throws CalculatorException {
+        int len = (int)pop();
+        double dotproduct = 0;
+        double[] vec1 = new double[len];
+        for (int i = 0; i < len; i++)
+            vec1[i] = pop();
+        for (int i = 0; i < len; i++)
+            dotproduct += pop() * vec1[i];
+        return dotproduct;
     }
 
     @Override

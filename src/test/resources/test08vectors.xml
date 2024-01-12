@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation>
+    <!-- vector: (1, 2) -->
+    <push value="1" />
+    <push value="3" />
+    <!-- vector: (3, 4) -->
+    <push value="4" />
+    <push value="5" />
+    <!-- length of vectors: 2 -->
+    <push value="2" />
+    <operation value="dotproduct" />
+    <!-- expected result: 11 ( 1*3 + 2*4 ) -->
+</calculation>
