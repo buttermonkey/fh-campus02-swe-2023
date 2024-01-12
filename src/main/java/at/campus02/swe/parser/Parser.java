@@ -84,6 +84,8 @@ public class Parser {
             return Operation.sin;
         else if ("cos".equals(value))
             return Operation.cos;
+        else if ("dotproduct".equals(value))
+            return Operation.dotproduct;
         else if ("random".equals(value)) {
             return Operation.random;
         }
