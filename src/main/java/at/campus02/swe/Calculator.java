@@ -15,7 +15,11 @@ public interface Calculator {
 
     void store(double result) throws CalculatorException;
 
+    void store(double result, String register) throws CalculatorException;
+
     double load() throws CalculatorException;
+
+    double load(String register) throws CalculatorException;
 
     void clear();
 }

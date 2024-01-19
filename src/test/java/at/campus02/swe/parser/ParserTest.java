@@ -118,4 +118,21 @@ public class ParserTest {
 
         verifyNoMoreInteractions(cal);
     }
+
+    @Test
+    public void testParserTest10StoreAndLoadWithRegisterName() throws Exception {
+
+        Calculator cal = mock(Calculator.class);
+
+        Parser parser = new Parser(cal);
+        parser.parse(new File("src/test/resources/test10storeAndLoadWithRegisterName.xml"));
+
+        verify(cal).push(11.0);
+        verify(cal).push(31.0);
+        verify(cal).perform(Operation.add);
+        verify(cal).store(.0, "A");  // zero, cause we just run a mock
+        verify(cal).load("A");
+
+        verifyNoMoreInteractions(cal);
+    }
 }
