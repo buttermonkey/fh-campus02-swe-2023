@@ -195,4 +195,22 @@ public class CalculatorTest {
         }
 
     }
+
+    @Test
+    public void testLoadCommandThrowsIfUnknownRegisterIsUsed() throws Exception {
+
+        //Setup
+        Calculator calc = new CalculatorImpl();
+        try {
+            calc.load("NOSUCHREGISTER");
+
+            fail("Exception expected");
+
+
+        } catch (CalculatorException e) {
+            assertEquals("No such register: NOSUCHREGISTER", e.getMessage());
+            // e.getCause()
+        }
+
+    }
 }

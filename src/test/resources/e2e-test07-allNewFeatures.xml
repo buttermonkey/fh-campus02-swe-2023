@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation>
+    <push value="181" />
+    <push value="91" />
+    <operation value="%" />   <!-- result = 90 -->
+    <store/>
+    <push value="45"/>
+    <operation value="cos" /> <!-- result = sqrt(2)/2 -->
+    <load/>                   <!-- result = 90 -->
+    <push value="result"/>
+    <operation value="sin" /> <!-- result = 1 -->
+    <push value="result"/>
+    <push value="3"/>
+    <operation value="random" />   <!-- result = [1..3] -->
+    <push value="1"/>
+    <push value="55"/>
+    <operation value="-" />   <!-- result = -54 -->
+    <store value="A"/>
+    <push value="0"/>
+    <push value="0"/>
+    <operation value="*" />   <!-- result = 0 -->
+    <load value="A"/>         <!-- result = -54 -->
+    <!-- expected result: 1 -->
+</calculation>

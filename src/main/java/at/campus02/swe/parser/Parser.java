@@ -43,9 +43,15 @@ public class Parser {
                     .equals(e.asStartElement().getName().getLocalPart())) {
                 calc_.pop();
             } else if ("store".equals(e.asStartElement().getName().getLocalPart())) {
-                calc_.store(result);
+                if (value.isEmpty())
+                    calc_.store(result);
+                else
+                    calc_.store(result, value);
             } else if ("load".equals(e.asStartElement().getName().getLocalPart())) {
-                result = calc_.load();
+                if (value.isEmpty())
+                    result = calc_.load();
+                else
+                    result = calc_.load(value);
             } else if ("operation".equals(e.asStartElement().getName()
                     .getLocalPart())) {
                 result = calc_.perform(readOperation(value));

@@ -4,6 +4,8 @@ package at.campus02.swe.logic;
 import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.Stack;
 
@@ -13,6 +15,7 @@ public class CalculatorImpl implements Calculator {
 
     private Stack<Double> stack_ = new Stack<Double>();
     private Double register;
+    private Map<String, Double> namedRegisters = new HashMap<>();
 
     public CalculatorImpl() {
     }
@@ -91,11 +94,23 @@ public class CalculatorImpl implements Calculator {
         register = result;
     }
 
-    @Override
+	@Override
+	public void store(double result, String register) throws CalculatorException {
+		namedRegisters.put(register, result);
+	}
+
+	@Override
     public double load() throws CalculatorException {
         if (register == null)
             throw new CalculatorException("Register is empty");
         return register;
+    }
+
+    @Override
+    public double load(String register) throws CalculatorException {
+        if (!namedRegisters.containsKey(register))
+            throw new CalculatorException("No such register: " + register);
+        return namedRegisters.getOrDefault(register, 0.);
     }
 
     @Override

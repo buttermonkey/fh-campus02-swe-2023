@@ -71,4 +71,14 @@ public class EndToEndTests {
 		assertEquals(-54, result, 0);
 	}
 
+	@Test
+	public void TestAllNewFeatures() throws Exception {
+		Calculator cal = new CalculatorImpl();
+
+		Parser parser = new Parser(cal);
+		int result = (int) parser.parse(new File("src/test/resources/e2e-test07-allNewFeatures.xml"));
+
+		assertEquals(-54, result, 0);
+	}
+
 }
