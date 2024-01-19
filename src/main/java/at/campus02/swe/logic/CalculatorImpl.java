@@ -12,6 +12,7 @@ public class CalculatorImpl implements Calculator {
     private Random random = new Random();
 
     private Stack<Double> stack_ = new Stack<Double>();
+    private Double register;
 
     public CalculatorImpl() {
     }
@@ -67,7 +68,7 @@ public class CalculatorImpl implements Calculator {
         }
     }
 
-    private double calculateDotProduct() throws CalculatorException {
+	private double calculateDotProduct() throws CalculatorException {
         int len = (int)pop();
         double dotproduct = 0;
         double[] vec1 = new double[len];
@@ -83,6 +84,18 @@ public class CalculatorImpl implements Calculator {
         if (stack_.isEmpty())
             throw new CalculatorException();
         return stack_.pop();
+    }
+
+    @Override
+    public void store(double result) throws CalculatorException {
+        register = result;
+    }
+
+    @Override
+    public double load() throws CalculatorException {
+        if (register == null)
+            throw new CalculatorException("Register is empty");
+        return register;
     }
 
     @Override

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation>
+    <push value="11"/>
+    <push value="31"/>
+    <operation value="+"/>
+    <store/>
+    <load/>
+    <!-- expected result: value 42 is stored in register -->
+</calculation>

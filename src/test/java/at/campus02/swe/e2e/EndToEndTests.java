@@ -61,4 +61,14 @@ public class EndToEndTests {
 		assertEquals(11, result, 0);
 	}
 
+	@Test
+	public void StoreAndLoadRegisterValues() throws Exception {
+		Calculator cal = new CalculatorImpl();
+
+		Parser parser = new Parser(cal);
+		int result = (int) parser.parse(new File("src/test/resources/e2e-test06-storeAndLoad.xml"));
+
+		assertEquals(-54, result, 0);
+	}
+
 }
