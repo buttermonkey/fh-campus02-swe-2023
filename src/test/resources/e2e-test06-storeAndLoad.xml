@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculation>
+    <push value="45" />
+    <push value="2" />
+    <operation value="*" />   <!-- result = 90 -->
+    <store/>
+    <push value="result"/>
+    <push value="3"/>
+    <operation value="/" />   <!-- result = 30 -->
+    <load/>                   <!-- result = 90 -->
+    <push value="result"/>
+    <operation value="sin" /> <!-- result = 1 -->
+    <push value="result"/>
+    <push value="55"/>
+    <operation value="-" />   <!-- result = -54 -->
+    <store/>
+    <load/>                   <!-- result = -54 -->
+    <!-- expected result: 1 -->
+</calculation>
